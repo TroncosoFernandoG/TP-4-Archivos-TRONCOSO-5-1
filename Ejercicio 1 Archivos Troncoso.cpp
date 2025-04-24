@@ -1,4 +1,5 @@
-/*1) Realizar un programa en el cual se ingresen los siguientes datos Nombre, Apellido y DNI
+/*
+1) Realizar un programa en el cual se ingresen los siguientes datos Nombre, Apellido y DNI
 a) Crear un menú donde se ingresen los datos y los guarde en un archivo
 b) Otro ítem donde se pueda realizar una búsqueda por DNI y devuelva los datos de Nombre y apellido
 c) Salir del mismo
@@ -46,7 +47,7 @@ do{
 			char apellido[50];
 			int DNI;
 			
-			dp=fopen("DatosPersonales.txt", "a");
+			dp=fopen("DatosPersonales1.txt", "a");
 			
 	    	printf("Ingrese el Nombre\n");
 				fgets(nombre, sizeof(nombre), stdin);
@@ -69,9 +70,9 @@ do{
 			
 			printf("Ingresar DNI para buscar los respectivos datos:  ");
                 scanf("%d", &DNIcomp);
-                getchar();
 
-                dp=fopen("DatosPersonales.txt", "r");
+
+                dp=fopen("DatosPersonales1.txt", "r");
                 int igual=0;
             
 		while(fgets(Lector, sizeof(Lector), dp) != NULL){
@@ -105,4 +106,3 @@ do{
 	
 	return 0;
 }
-
