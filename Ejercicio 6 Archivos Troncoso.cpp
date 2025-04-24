@@ -45,13 +45,13 @@ int main(){
 			int puntaje2;
 			int duplicado = 0;
 
-			printf("Ingrese el Nombre\n");
+			printf("Ingrese el Nombre del jugador nro %d:\n", i+1);
 			fgets(jug[i].nombre , sizeof(jug[i].nombre), stdin);
 			jug[i].nombre[strcspn(jug[i].nombre, "\n")] = 0;
-			printf("Ingrese el Apellido\n");
+			printf("Ingrese el Apellido del jugador nro %d:\n", i+1);
 			fgets(jug[i].apellido, sizeof(jug[i].apellido), stdin);
 			jug[i].apellido[strcspn(jug[i].apellido, "\n")] = 0;
-			printf("Ingrese el puntaje\n");
+			printf("Ingrese el puntaje del jugador nro %d:\n", i+1);
 			scanf("%d", &jug[i].puntaje);
 			
 
@@ -92,7 +92,7 @@ do{
 	
 	if(op<1||op>3)
 	{
-
+   
 		do{
 			printf("Opcion no valida, por favor intentar nuevamente\n");
 				scanf("%d", &op);
@@ -105,12 +105,36 @@ do{
 	{
 		case 1:{
 
+		struct jugadores temp;
+
+ 		for(int i=0;i<n;i++){
+			for(int j=0;j<n-1;j++){ 
+				if(jug[j].puntaje>jug[j+1].puntaje){
+					temp.puntaje=jug[j+1].puntaje;
+					jug[j+1].puntaje=jug[j].puntaje;
+					jug[j].puntaje = temp.puntaje;
+
+					strcpy(temp.nombre, jug[j+1].nombre);
+					strcpy(jug[j+1].nombre, jug[j].nombre);
+					strcpy(jug[j].nombre, temp.nombre);
+
+					strcpy(temp.apellido, jug[j+1].apellido);
+					strcpy(jug[j+1].apellido, jug[j].apellido);
+					strcpy(jug[j].apellido, temp.apellido);
+				}
+			}
+		}
 			
+	for(int i=10;i>=1;i--){
+	printf("%s %s %d\n",jug[i].nombre, jug[i].apellido, jug[i].puntaje);
+		}
+		
 			break;
 		}
 		
 		
 		case 2:{
+			
 			
 			char nombrecomp[50];
 			char apellidocomp[50];
